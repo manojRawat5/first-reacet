@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/manojRawat5/first-reacet.git/static/css/main.f73496f2.css",
+    "main.js": "/manojRawat5/first-reacet.git/static/js/main.d961f5f7.js",
+    "static/js/787.07bc85e0.chunk.js": "/manojRawat5/first-reacet.git/static/js/787.07bc85e0.chunk.js",
+    "index.html": "/manojRawat5/first-reacet.git/index.html",
+    "main.f73496f2.css.map": "/manojRawat5/first-reacet.git/static/css/main.f73496f2.css.map",
+    "main.d961f5f7.js.map": "/manojRawat5/first-reacet.git/static/js/main.d961f5f7.js.map",
+    "787.07bc85e0.chunk.js.map": "/manojRawat5/first-reacet.git/static/js/787.07bc85e0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f73496f2.css",
+    "static/js/main.d961f5f7.js"
+  ]
+}
