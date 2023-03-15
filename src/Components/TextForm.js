@@ -26,9 +26,11 @@ export default function TextForm(props) {
     }
 
     const handleCopy = () =>{
-      let text = document.getElementById("textArea");
-      text.select();
-      navigator.clipboard.writeText(text.value);
+      // let text = document.getElementById("textArea");
+      // text.select();
+      // navigator.clipboard.writeText(text.value);
+      // document.getSelection().removeAllRanges();
+      navigator.clipboard.writeText(text);
       props.showAlert('Text cipited in clickboard','success : ')
     }
 
@@ -45,19 +47,19 @@ export default function TextForm(props) {
     <div className="container my-4" style={{color :props.mode=== 'dark'?'white':'black'}}>
     <h2>{props.heading}</h2>
 <div className="mb-3">
-<textarea className="form-control" style={{backgroundColor :props.mode=== 'dark'?'gray':'white', color :props.mode==='dark'?'white':'black'}} placeholder='Enter your text' onChange={handleOnChange} value={text} id="textArea" rows="5"></textarea>
+<textarea className="form-control" style={{backgroundColor :props.mode=== 'dark'?'#13466e':'white', color :props.mode==='dark'?'white':'black'}} placeholder='Enter your text' onChange={handleOnChange} value={text} id="textArea" rows="5"></textarea>
 </div>
-<button className="btn btn-danger mx-2" onClick={handleUpClick}>Convert To UpperCase</button>
-<button className="btn btn-danger mx-4" onClick={handleLoClick}>Convert To LowerCase</button>
-<button className="btn btn-warning mx-4" onClick={handleClearClick}>Clear all Text</button>
-<button className="btn btn-warning mx-4" onClick={handleCopy}>Copy all Text</button>
-<button className="btn btn-warning mx-4" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+<button disabled={text.length===0} className="btn btn-danger mx-2 my-2" onClick={handleUpClick}>Convert To UpperCase</button>
+<button disabled={text.length===0} className="btn btn-danger mx-2 my-2" onClick={handleLoClick}>Convert To LowerCase</button>
+<button disabled={text.length===0} className="btn btn-warning mx-2 my-2" onClick={handleClearClick}>Clear all Text</button>
+<button disabled={text.length===0} className="btn btn-warning mx-2 my-2" onClick={handleCopy}>Copy all Text</button>
+<button disabled={text.length===0} className="btn btn-warning mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
 </div>
 <div className="container my-4" style={{color :props.mode=== 'dark'?'white':'black'}}>
   <h2>Your text summary</h2>
-  <p>{text.split(" ").length} words and {text.length} characters</p>
+  <p>{text.split(/\s+/).filter( (element) => { return element.length !==0 } ).length} words and {text.length} characters</p>
    {/* in  1 minutes can read 125 words  */}
-   <p>{0.008 * text.split("").length} Minutes to read</p>
+   <p>{0.008 * text.split(" ").filter((element)=> { return element.length !==0 }).length} Minutes to read</p>
    <h2>Preview</h2>
    <p>{text.length>0?text:"Enter something in the textbox above to preview it here "}</p>
 </div>
